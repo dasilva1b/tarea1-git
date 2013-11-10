@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html>
+   <script>
+   function showI(obj) {
+      if (document.getElementById(obj).style.display=='none'){
+	document.getElementById(obj).style.display = "block";
+      }
+      else {
+	document.getElementById(obj).style.display="none";
+      }
+    }
+    </script>
+    <script>
+    function hide(obj) {
+      document.getElementById(obj).style.display="none";
+    }  
+</script>
+
+    </script>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html;">
@@ -16,11 +33,17 @@
   </head>
   <body>
     <a id="github-ribbon" href="https://github.com/devlabs-usb/tarea1-git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
-
     <header>
       <h1>DevLabs__UCB/UCAB</h1>
       <h2>Tarea 1</h2>
     </header>
+    <div id="MenuHorizontal">
+      <ul class="horizontal">
+	<li><a href="#InfoPersonal" style="display:inline-block"> Información del aspirante</a> </li>
+	<li> <a href="#questions" style="display:inline-block"> Respuestas </a></li>
+      </ul>
+    </div>
+
 
     <section id="explanation">
       <div>
@@ -79,24 +102,39 @@
 
 
       -->
-
+    <section  id="InfoPersonal"style="text-align:center">
+	<h3> Información del Aspirante </h3>
+	<img src="foto.jpg" alt="some_text" widht="200" height="200">
+	<div class="show" onclick="showI('infopers');" style="text-decoration:underline">Mostrar/Ocultar Info </div>
+	<div id="infopers" style="display:none">
+	<p> -Nombre: Carlos Da Silva </p>
+	<p> -Carnet: 10-10175 </p>
+	<p> -Mail: <a href="mailto:cdssox18@gmail.com">cdssox18@gmail.com</a> </p>
+	<p> -Cuenta github: <a href="https://github.com/dasilva1b" target="_blank">dasilva1b</a>
+	<p> -Otras Actividades: Preparador académico de 
+	    <ul>
+	      <li> Estructuras Discretas II, </li>
+	      <li> Estructuras Discretas III, </li>
+	      <li> Lab. Algoritmos y estructuras I </li>
+	    </ul>
+	</p>
+      </div>
+    </section>
     <section id="questions">
       <article>
-        <h3>Preguntas</h3>
+        <h3>Preguntas/Respuestas <p style="font-size:1"> (Presione en cada pregunta para desplegar/ocultar su respuesta) </p></h3>
       </article>
       <article id="q1">
-        <h3>
+        <h3 class="showw" onclick="showI('answer1')">
           1. Colocar acá el hash del commit en el que resolviste el merge
           conflict causado por el paso 4.
         </h3>
-        <div class="answer">
-          Colocar acá el hash. Nota: El hash sería algo como: 8a000d3d2ec8b5f8b2286ad279c54b430fc97c67<br />
-          o mejor aún, podrían apuntarlo directamente a github:
-          <a href="https://github.com/devlabs-usb/tarea1-git/commit/8a000d3d2ec8b5f8b2286ad279c54b430fc97c67" target="blank">8a000d3d2ec8b5f8b2286ad279c54b430fc97c67</a>
+        <div class="answer" id="answer1" style="display:none">
+          <p> >> <a href="https://github.com/dasilva1b/tarea1-git/commit/2e910e8377c947d1adf17c513bd6288e0e509106" target="blank">2e910e8377c947d1adf17c513bd6288e0e509106</a></p>
         </div>
       </article>
       <article id="q2">
-        <h3>
+        <h3 class="showw" onclick="showI('answer2')" >
           2. Utilizando el diccionario SOWPODS de Scrabble
           (<a href="http://norvig.com/ngrams/sowpods.txt"
           target="blank">http://norvig.com/ngrams/sowpods.txt</a>)
@@ -106,25 +144,68 @@
           aparece repetida pues la palabra “ADD” contiene la
           subsecuencia “DD”.
         </h3>
-        <div class="answer">
-          Coloca tu respuesta aquí.<br/>
-          Opcionalmente, puedes poner los archivos con la solución
-          en tu repositorio y poner la dirección del archivo acá.
-          Como por ejemplo: /Código/Scrabble.py
+        <div class="answer" id="answer2" style="display:none">
+          El programa realizado por mí, con el diccionario sowpods propuesto
+	  arrojó que las únicas letras que cumplen con la propiedad son: la 'q'
+	  y la 'x'. A continuación links a la dirección del programa
+	  y el archivo de respuesta generado:<br/>
+	  <ul>
+	    <li> ><a href="https://github.com/dasilva1b/RandomWork/blob/master/scrabble.py" target="blank">Código fuente en python del programa</a> </li>
+	    <li> ><a href="https://github.com/dasilva1b/RandomWork/blob/master/respuesta.txt" target="blank"> Archivo de respuesta generado </a> </li>
+	  </ul>
         </div>
       </article>
       <article id="q3">
-        <h3>
+        <h3 class="showw" onclick="showI('answer3')">
           3. En un contexto de la herramienta de control de versiones
           Git: definir 'working directory', 'index', 'local repo', 'remote
           repo', 'dirty working tree' y 'merge conflict'.
         </h3>
-        <div class="answer">
-          Coloca tus respuestas aquí.
+        <div class="answer" id="answer3" style="display:none">
+          <ul>
+	    <li> <p> <strong>Merge Conflict</strong>: Es cuando dos commits provenientes de distintas
+		     ramas o branches han modificado el mismo contenido o misma sección/es
+		     de un archivo, causando que GitHub no pueda determinar
+		     como combinar dichos cambios. En estos casos el usuario debe analizar
+		     y escoger o modificar a conveniencia.
+		  </p> 
+	    </li>
+	    <li> <p> <strong> Local repo </strong>: Es la copia que el usuario posee en su 
+		     máquina de un repositorio git. A el anadirá/removerá archivos desde su estación
+		     de trabajo.
+		</p>
+	    </li>
+	     <li> <p> <strong> Remote repo </strong>: Es el repositorio, que contiene un proyecto, que
+		      esta almacenado en la red, en nuestro caso, en GitHub. El usuario podrá entonces
+		      desde su repositorio local empujar o hacer "push" de  los cambios almacenados en el local para
+		      que éstos se reflejen en el remoto.
+		</p>
+	    </li>
+	    <li> <p> <strong> Working Directory </strong>: Es el área en donde realmente el usuario trabaja en los
+		      los archivos de su proyecto.Se podría decir que es una copia que se obtiene del
+		      repositorio y se pone en disco para que el usuario pueda trabajar sobre
+		      los archivos, modificarlos.Posteriormente, dicho usuario pudiese mediante las operaciones de
+		      add y commit reflejar dichos cambios en el repositorio local: Con add los escribe en el Index
+		      y con commit los pasa del Index al local.Luego,  de ser requerido, con la operación
+		      push puede almacenarlos en el remoto.
+		</p>
+	    </li>
+	    <li> <p> <strong> Index </strong>: Es el área hacia la cual los archivos son anadidos
+		 o removidos antes de que se les haga "commit" y queden en el repositorio local.
+		 Es, en el término inglés, una "staging area".
+		</p>
+	    </li>
+	    <li> <p> <strong> Dirty Working tree </strong>: Se le conoce a dirty working tree/directory como
+		 un espacio de trabajo en el cual hay archivos que han sido actualizados <italics> DESPUES </italics> de
+		 que lo hayan sido en el Index.
+		</p>
+	    </li>
+
+	  <ul>
         </div>
       </article>
       <article id="q4">
-        <h3>
+        <h3 class="showw" onclick="showI('answer4')">
           4. Completar la siguiente tabla indicando para cada celda si el
           comando especificado en la columna lee (R) y/o escribe (W)
           en la ubicación especificada en la primera fila. Por
@@ -132,7 +213,7 @@
           commit, lo agrega al repositorio actual y finalmente vacía
           el indice.
         </h3>
-        <div class="answer">
+        <div class="answer" id="answer4" style="display:none">
           <table>
             <thead>
               <tr>
@@ -150,42 +231,42 @@
             <tbody>
               <tr>
                 <th scope="row">working dir</th>
+                <td>R</td>
                 <td></td>
+                <td>R</td>
                 <td></td>
+                <td>W</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>W</td>
               </tr>
               <tr>
                 <th scope="row">index</th>
+                <td>R</td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>W</td>
                 <td>R/W</td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>R</td>
               </tr>
               <tr>
                 <th scope="row">local repo</th>
                 <td></td>
-                <td></td>
+                <td>W</td>
                 <td></td>
                 <td>W</td>
                 <td></td>
-                <td></td>
+                <td>R</td>
                 <td></td>
               </tr>
               <tr>
                 <th scope="row">remote repo</th>
                 <td></td>
+                <td>R</td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>R</td>
+                <td>R/W</td>
                 <td></td>
               </tr>
             </tbody>
@@ -196,21 +277,6 @@
       <article id="q5">
         <h3>Rellenar la siguiente encuesta</h3>
         <div class="answer not-technically-an-answer"><a href="https://docs.google.com/forms/d/1CzebM_8YQThM7LjjGou6VxixEalTwXZg_FDoYEHKdes/viewform" target="blank">https://docs.google.com/forms/d/1CzebM_8YQThM7LjjGou6VxixEalTwXZg_FDoYEHKdes/viewform</a>.</div>
-      </article>
-
-      <article id="q6">
-          <h3>Actividad Extra (Bonus Points)</h3>
-          <div class="answer not-technically-an-answer">
-            <p>
-              Sabemos que esta página no es lo más bonito del mundo,
-              ni esta muy bien hecha. Tomaremos en consideración
-              a aquellos que quieran mejorar el diseño de esta página.
-              Pueden hacer uso de todas las tecnologías web que conozcan
-              para hacer algo extra con lo que impresionarnos. La única
-              condición es mantener las mismas preguntas y llenar las
-              respuestas adecuadamente.
-            </p>
-          </div>
       </article>
     </section>
 
